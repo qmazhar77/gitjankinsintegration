@@ -16,6 +16,7 @@ class Test_OrangeHRM():
         self.driver.get("https://opensource-demo.orangehrmlive.com/")
         assert self.driver.title=="OrangeHRM123"
 
+
     def test_Login(self,setup):
         self.driver.get("https://opensource-demo.orangehrmlive.com/")
         self.driver.find_element_by_id("txtUsername").send_keys("admin")
@@ -23,5 +24,5 @@ class Test_OrangeHRM():
         self.driver.find_element_by_id("btnLogin").submit()
         assert self.driver.title=="OrangeHRM"
 
-#pytest -v -s --html=.\htmlreport\report.html --self-contained-html pytestDemo/test_htmlreport.py
+                #pytest -v -s --html=.\htmlreport\report.html --self-contained-html pytestDemo/test_htmlreport.py
 #"html=.\htmlreport\report.html" HTML report will created in spacified folder which is "htmlreport"

@@ -8,14 +8,15 @@ driver.find_element_by_id("txtUsername").send_keys("admin")
 driver.find_element_by_id("txtPassword").send_keys("admin123")
 driver.find_element_by_id("btnLogin").submit()
 driver.find_element_by_link_text("Admin").click()
-row = (driver.find_element_by_xpath("//body//tbody//tr[1]"))
-col = (driver.find_element_by_xpath("//body//th[1]"))
-print ("Number of Row :", row)
-print ("Number of Col :", col)
+rows = len(driver.find_elements_by_xpath("//*[@id='resultTable']/tbody/tr"))
+cols = len(driver.find_elements_by_xpath("//*[@id='resultTable']/tbody/tr[1]/td"))
+print("No of rows: ", rows)
+print("No of Col:", cols)
 
-for r in range(2,row+1):
-    for c in range(1,col+1):
-        value = driver.find_element_by_xpath("//body//tbody//tr[1]").text
-        print(value,end=" ")
-        print()
+
+for r in range(2,rows+1):
+    for c in range(1,cols+1):
+        value = driver.find_element_by_xpath("//*[@id='resultTable']/tbody/tr["+str(r)+"]/td["+str(c)+"]").text
+        print(value,end="              ")
+    print()
 driver.close()
